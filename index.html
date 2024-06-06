@@ -16,15 +16,29 @@
   <body>
     <div class="options-cont">
       <i class="fa-solid fa-bars"></i>
-      <div class="tools-cont">
-        <img class="pencil" src="Icons/Pencil.svg" />
-        <img class="eraser" src="Icons/Eraser.svg" />
-        <img class="download" src="Icons/Download.svg" />
-        <img class="upload" src="Icons/Upload.svg" />
-        <img class="sticky" src="Icons/StickyNote.svg" />
-        <img class="redo" src="Icons/Redo.svg" />
-        <img class="undo" src="Icons/Undo.svg" />
+    </div>
+    <div class="tools-cont scale-tools">
+      <img class="pencil" src="Icons/Pencil.svg" />
+      <img class="eraser" src="Icons/Eraser.svg" />
+      <img class="download" src="Icons/Download.svg" />
+      <img class="upload" src="Icons/Upload.svg" />
+      <img class="sticky" src="Icons/StickyNote.svg" />
+      <img class="redo" src="Icons/Redo.svg" />
+      <img class="undo" src="Icons/Undo.svg" />
+    </div>
+    <div class="pencil-tool-cont">
+      <div class="pencil-width-cont">
+        <input type="range" min="2" max="10" value="3" class="pencil-width" />
+      </div>
+      <div class="pencil-color-cont">
+        <div class="black pencil-color"></div>
+        <div class="red pencil-color"></div>
+        <div class="blue pencil-color"></div>
       </div>
     </div>
+    <div class="eraser-tool-cont">
+      <input type="range" min="2" max="10" value="3" class="eraser-width" />
+    </div>
   </body>
+  <script src="./tools.js"></script>
 </html>
