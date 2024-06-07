@@ -44,9 +44,9 @@ pencil.addEventListener("click", function (e) {
 eraser.addEventListener("click", function (e) {
   erasorFlag = !erasorFlag;
   if (erasorFlag) {
-    pencilToolCont.style.display = "none";
+    eraserToolCont.style.display = "none";
   } else {
-    pencilToolCont.style.display = "flex";
+    eraserToolCont.style.display = "flex";
   }
 });
 
