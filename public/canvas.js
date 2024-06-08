@@ -29,18 +29,22 @@ let track = 0;
 
 canvas.addEventListener("mousedown", function (e) {
   bool = true;
-  beginPath({
+  const data = {
     x: e.clientX,
     y: e.clientY,
-  });
+  };
+  // beginPath(data);
+  socket.emit("beginPath", data);
 });
 
 canvas.addEventListener("mousemove", function (e) {
   if (bool) {
-    drawStroke({
+    const data = {
       x: e.clientX,
       y: e.clientY,
-    });
+    };
+    // drawStroke(data);
+    socket.emit("drawStroke", data);
   }
 });
 
@@ -116,10 +120,12 @@ undo.addEventListener("click", () => {
 redo.addEventListener("click", () => {
   if (track === undoRedoTracker.length - 1) return;
   track++;
-  undoRedoCanvas({
+  const trackerObj = {
     track,
     undoRedoTracker,
-  });
+  };
+  // undoRedoCanvas(trackerObj);
+  socket.emit("redoUndo", trackerObj);
 });
 
 const undoRedoCanvas = (trackerObj) => {
@@ -132,3 +138,14 @@ const undoRedoCanvas = (trackerObj) => {
     tool.drawImage(img, 0, 0, canvas.width, canvas.height);
   };
 };
+
+socket.on("beginPath", (data) => {
+  // data -> data from server
+  beginPath(data);
+});
+socket.on("drawStroke", (data) => {
+  drawStroke(data);
+});
+socket.on("redoUndo", (data) => {
+  undoRedoCanvas(data);
+});
